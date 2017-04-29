@@ -4,14 +4,16 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "morgan": "*",
+    "body-parser": "*",
     "express": "*",
-    "body-parser": "*"
+    "morgan": "*",
+    "mysql": "^2.13.0",
+    "sequelize": "*"
   },
-  "devDependencies": {    
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
-    "gulpclass": "^0.1.1",    
+    "gulpclass": "^0.1.1",
     "typescript": "^2.2.1"
   }
 }
