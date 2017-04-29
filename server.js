@@ -11,12 +11,7 @@ var instance = new orm('nrd_hackaton', 'root', 'mysql!nrd!123', {
 });
 
 var entityModel = require('./model/entity')(orm, instance);
-
-entityModel.findAll().then(function(data) {
-	console.log(data);
-}, function(error) {
-	console.log(error);
-});
+var entityResource = require('./resource/entity')(entityModel, server);
 
 server.use(express.static(path.join(__dirname, 'public')));
 server.use(bodyParser.urlencoded({
@@ -24,5 +19,5 @@ server.use(bodyParser.urlencoded({
 }));
 server.use(bodyParser.json());
 server.use(morgan('dev'));
-server.listen(80);
+server.listen(5000);
 console.log('Server Running');
