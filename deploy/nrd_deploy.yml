@@ -1,0 +1,29 @@
+---
+- hosts: app
+  become: true
+  tasks:
+    - name: Stop nasa-server application
+      systemd:
+        name: nasa.service
+        state: stopped
+
+    - name: Clone repository
+      git:
+        repo: https://github.com/GenDecoder/nasa-server.git
+        dest: /home/admin/nasa-server
+        clone: yes
+        update: yes
+      become: yes
+      become_user: admin
+
+    - name: Install npm dependencies
+      shell: npm install
+      args:
+        chdir: /home/admin/nasa-server
+      become: yes
+      become_user: admin
+
+    - name: Start nasa-server application
+      systemd:
+        name: nasa.service
+        state: started
