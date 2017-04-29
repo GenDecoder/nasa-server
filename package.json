@@ -1,0 +1,17 @@
+{
+  "name": "nxf-app",
+  "version": "1.1.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "morgan": "*",
+    "express": "*",
+    "body-parser": "*"
+  },
+  "devDependencies": {    
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulpclass": "^0.1.1",    
+    "typescript": "^2.2.1"
+  }
+}
