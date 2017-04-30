@@ -11,5 +11,16 @@ module.exports = function(model, router) {
                 object: response.dataValues
             })
         });
+    }); 
+
+    router.get('/entity-sensor/list', function(req, res) {
+        model.findAll({
+            ENTITY_ID: req.query.id            
+        }).then(function(list) {
+            res.json({
+                success: true,
+                list: list
+            })
+        });
     });    
 };

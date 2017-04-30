@@ -29,7 +29,14 @@ module.exports = function(model, router) {
     router.post('/entity/update', function(req, res) {
        
     });
-    router.post('/entity/getById', function(req, res) {
-        
+    router.get('/entity/getById', function(req, res) {
+        model.find({
+            ID: req.query.id            
+        }).then(function(response) {
+            res.json({
+                success: true,
+                object: response.dataValues
+            })
+        });
     });
 };
