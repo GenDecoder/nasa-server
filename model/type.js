@@ -3,7 +3,6 @@ module.exports = function(orm, instance) {
         ID: {
             type: orm.INTEGER,
             allowNull: false,
-            autoIncrement: true,
             primaryKey: true
         },
         NAME: orm.STRING(45)           

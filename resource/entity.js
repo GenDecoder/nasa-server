@@ -10,10 +10,9 @@ module.exports = function(model, router) {
             console.log(error);
         });
     });
-    router.post('/entity/create', function(req, res) {
+    router.post('/entity/create', function(req, res) {    
         model.create({
-            ID: 1,
-            NAME: 'MARIO TEST'
+            NAME: req.body.name
         }).then(function(response) {
             console.log(response);
             res.json({
@@ -21,5 +20,14 @@ module.exports = function(model, router) {
                 object: response.dataValues
             })
         });
+    });
+    router.post('/entity/remove', function(req, res) {
+        
+    });
+    router.post('/entity/update', function(req, res) {
+       
+    });
+    router.post('/entity/getById', function(req, res) {
+        
     });
 };
