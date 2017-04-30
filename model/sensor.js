@@ -1,13 +1,14 @@
 module.exports = function(orm, instance) {
-    return instance.define('ENTITY', {
+    return instance.define('SENSOR', {
         ID: {
             type: orm.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         NAME: orm.STRING(45)           
     }, {
-        tableName: 'ENTITY',
+        tableName: 'SENSOR',
         createdAt: false,
         updatedAt: false
     });

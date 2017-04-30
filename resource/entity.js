@@ -12,9 +12,11 @@ module.exports = function(model, router) {
     });
     router.post('/entity/create', function(req, res) {    
         model.create({
-            NAME: req.body.name
+            NAME: req.body.name,
+            LATITUDE: req.body.latitude,
+            LONGITUDE: req.body.longitude,
+            SOIL_TYPE: req.body.soil_type
         }).then(function(response) {
-            console.log(response);
             res.json({
                 success: true,
                 object: response.dataValues

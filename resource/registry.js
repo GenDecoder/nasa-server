@@ -3,11 +3,18 @@ module.exports = function(model, router) {
         
     });
     router.post('/registry/create', function(req, res) {
-        
-    });
-    router.post('/registry/remove', function(req, res) {
-        
-    });
+        model.create({ 
+            SOIL_WET: orm.STRING(45),
+            PICTURE: orm.STRING(45),
+            PRECIPITATION: orm.STRING(45),
+            RISK_LEVEL: orm.INTEGER
+        }).then(function(response) {
+            res.json({
+                success: true,
+                object: response.dataValues
+            });
+        });
+    });    
     router.post('/registry/update', function(req, res) {
        
     });
