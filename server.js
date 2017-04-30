@@ -33,7 +33,7 @@ require('./resource/entity')(require('./model/entity')(orm, instance), server);
 require('./resource/sensor')(require('./model/sensor')(orm, instance), server);
 require('./resource/entity-sensor')(require('./model/entity-sensor')(orm, instance), server);
 client.on('connect', function () {
-  client.subscribe('sensor/+/+/soilwet');
+  client.subscribe('sensors/+/+/soilwet');
   // client.subscribe('camera/#');
   // client.subscribe('matlab/#');
 });
@@ -41,39 +41,40 @@ client.on('message', function (topic, data) {
   var id;
   var array = topic.split('/');
   switch(array[0]) {
-    case 'sensor':
-      imergModel.find({
+    case 'sensors':
+      // imergModel.find({
         
-      }).then(function(response) {
-        var riskValue = 0;
-        var object = response.dataValues;
-        var riskLevelValue = (data*1.5 + object.precipitation)/2;
-        switch(true) {
-          case riskLevelValue >= 0 && riskLevelValue <= 2:
-            riskValue: 0;
-            break;
-          case riskLevelValue > 2 && riskLevelValue <= 15:
-            riskValue: 1;
-            break;
-          case riskLevelValue > 15  && riskLevelValue <= 30:
-            riskValue: 2;
-            break;
-          case riskLevelValue > 30 && riskLevelValue <= 60:
-            riskValue: 3;
-            break;
-          case riskLevelValue > 60:
-            riskValue: 4;
-            break;
-        }
-      });
+      // }).then(function(response) {
+      //   var riskValue = 0;
+      //   var object = response.dataValues;
+      //   var riskLevelValue = (data*1.5 + object.precipitation)/2;
+      //   switch(true) {
+      //     case riskLevelValue >= 0 && riskLevelValue <= 2:
+      //       riskValue: 0;
+      //       break;
+      //     case riskLevelValue > 2 && riskLevelValue <= 15:
+      //       riskValue: 1;
+      //       break;
+      //     case riskLevelValue > 15  && riskLevelValue <= 30:
+      //       riskValue: 2;
+      //       break;
+      //     case riskLevelValue > 30 && riskLevelValue <= 60:
+      //       riskValue: 3;
+      //       break;
+      //     case riskLevelValue > 60:
+      //       riskValue: 4;
+      //       break;
+      //   }
+      // });
       registryModel.create({
-          SOIL_WET: data, // Calculate this
+          SOIL_WET: 2, // Calculate this
           PICTURE: '',
           PRECIPITATION: 10, // Calculate this
-          RISK_LEVEL: 7, // Calculate this
+          LANDSLIDE_RISK_LEVEL: 7, // Calculate this
           ENTITY_ID: array[2]
       }).then(function(response) {
-        clts[0].send(response.dataValues);           
+        for (var i = 0; i < clts.length; i += 1)
+          clts[i].send(response.dataValues.LANDSLIDE_RISK_LEVEL);
       });
       break;
     // case 'camera':

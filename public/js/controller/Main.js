@@ -22,6 +22,7 @@ app.controller('MainCtrl', [
                 console.log(location);
             });
         //};
+        $scope.test = 0;
         $scope.loc = "-16.5407483,-68.0828799";
         mask.removeClass('on');
         $scope.viewMore = function(item) {
@@ -31,6 +32,7 @@ app.controller('MainCtrl', [
         var dataStream = $websocket('ws://localhost:8081/connection');
 
         dataStream.onMessage(function(message) {
+            $scope.test = message.data;
            console.log(message.data);
         });
     }
