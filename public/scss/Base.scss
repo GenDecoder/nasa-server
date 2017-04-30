@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'Drop-Sans';
+  src: url('font/DroidSans.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
+
+$mainColor:       #4CAF50;
+
+$mainColorLight:  #E8F5E9;
+$mainColor10:     #C8E6C9;
+$mainColor20:     #A5D6A7;
+$mainColor30:     #81C784;
+$mainColor40:     #66BB6A;
+$mainColor60:     #43A047;
+$mainColor70:     #388E3C;
+$mainColor80:     #2E7D32;
+$mainColorDark:   #1B5E20;
+
+$accentColor:     #FF9800;
+$accentColorLight:#FFF3E0;
+$accentColor10:   #FFE0B2;
+$accentColor20:   #FFCC80;
+$accentColor30:   #FFB74D;
+$accentColor40:   #FFA726;
+$accentColor60:   #FB8C00;
+$accentColor70:   #F57C00;
+$accentColor80:   #EF6C00;
+$accentColorDark: #E65100;
+
+$darkThemeMainColor:       #607D8B;
+$darkThemeMainColorLight:  #ECEFF1;
+$darkThemeMainColor10:     #CFD8DC;
+$darkThemeMainColor20:     #B0BEC5;
+$darkThemeMainColor30:     #90A4AE;
+$darkThemeMainColor40:     #78909C;
+$darkThemeMainColor60:     #546E7A;
+$darkThemeMainColor70:     #455A64;
+$darkThemeMainColor80:     #37474F;
+$darkThemeMainColorDark:   #263238;
+
+$blackColor:      #000000;
+$greyColor3:      #333333;
+$greyColor6:      #666666;
+$greyColor9:      #999999;
+$greyColorLight:  #CCCCCC;
+$whiteColor:      #FFFFFF;
+
+$regularFontFamily: 'Open Sans', 'Drop-Sans', sans-serif;
+
+$fontBold: 700;
+
+@import "main";
+@import "columns";
+@import "card";
+@import "chart";
+@import "buttons";
+@import "speed";
+@import "details";
+@import "projection";
+@import "map";

@@ -9,22 +9,15 @@ let errorFn = function(error) {
     this.emit('end');
     console.error(error + '\nError detected, but server not stopped');    
 };
-const proxyOptions = url.parse(
-    'http://xmark-dev1.xtime.com/xmark'  // DEV1
-    // 'http://xmark-qa1.xtime.com/xmark'      // QA1
-    // 'http://xmark-uat1.xtime.com/xmark'  // UAT1
-    // 'http://10.100.0.106:9090/xmark'     // LOCAL
-);
-proxyOptions.route = '/xmark';
 
 @Gulpclass()
 export class Gulpfile {    
     @Task()
     compile_sass() {
-        return gulp.src('scss/**/*.scss')
+        return gulp.src('public/scss/**/*.scss')
             .pipe(sass())
             .on("error", errorFn)
-            .pipe(gulp.dest('./css/'))           
+            .pipe(gulp.dest('./public/css/'))           
             .pipe(browserSync.stream());
     }
     @Task()
@@ -33,10 +26,10 @@ export class Gulpfile {
             port: 5000,
             open: false,
             server: {
-                baseDir: "./",
-                middleware: [proxy(proxyOptions)]
+                baseDir: "./public",
+                middleware: [proxy('54.164.49.88:8080')]
             }
         });
-        gulp.watch('scss/**/*.scss', ['compile_sass']);        
+        gulp.watch('public/scss/**/*.scss', ['compile_sass']);        
     }     
 }

@@ -1,0 +1,15 @@
+<div class="body" style = "text-align: center;">
+    <div class="map" ng-show="isMapVisible">
+
+    </div>
+    <div class = "chart-gauge" ng-hide="isMapVisible">
+        <svg id = "mainGraph" height="200" ></svg>
+        <div class = "nrd-chart">
+            <div class = "projection" style = "background: {{getRGBColor(item, 40)}}" ng-repeat = "item in projection track by $index"></div>
+            <rzslider
+                rz-slider-model= "slider.now"
+                rz-slider-options = "slider.options"
+            ></rzslider>
+        </div>
+    </div>
+</div>

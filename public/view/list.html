@@ -1,0 +1,9 @@
+<div>
+    <div class="row" ng-repeat="entity in entities" ng-click="selected=entity;">
+        <div> {{ entity.name }} </div>
+        <div ng-show="selected===entity">
+            I am the selected row
+            HERE THE MAP MUST BE SHOW, THE IMAGE AND THE USEFUL DATA
+        </div>
+    </div>
+</div>

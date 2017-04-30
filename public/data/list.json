@@ -1,0 +1,33 @@
+{
+    "list": [{
+        "id": 1,
+        "distance": 1,
+        "tailSize": 20,
+        "latitude": "",
+        "longitude": "",
+        "usersOnQueue": 1,
+        "arrivalTime": 30,
+        "tailWaitTime": 100,
+        "name": "AV. Montenegro"
+    }, {
+        "id": 2,
+        "distance": 1,
+        "tailSize": 20,
+        "latitude": "",
+        "longitude": "",
+        "usersOnQueue": 9,
+        "arrivalTime": 30,
+        "tailWaitTime": 100,
+        "name": "AV. 20 de Octubre"
+    }, {
+        "id": 3,
+        "distance": 1,
+        "tailSize": 20,
+        "latitude": "",
+        "longitude": "",
+        "usersOnQueue": 20,
+        "arrivalTime": 30,
+        "tailWaitTime": 100,
+        "name": "AV. 14 de Septiembre"
+    }]
+}

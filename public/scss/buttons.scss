@@ -1,0 +1,11 @@
+.main-button {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: $accentColor;
+  color: $whiteColor;
+  border-radius: 5px;
+  float: right;
+  margin-top: -12px;
+  margin-right: 10px;
+  font: bold 13px $regularFontFamily;
+}

@@ -1,12 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!doctype html>
+<html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    NRD LANDSLIDE PROJECT
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title> NRD - LANDSLIDE - NASA </title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/rzslider.css">
+    </head>
+
+    <body ng-app="app" ng-controller = "MainCtrl">
+        <div id = "nrdGMap" class = "nrd-g-map"></div>
+
+        <div ng-include="'./view/header.html'"></div>
+        <div ng-include="'./view/list.html'"></div>
+        <div ng-include="'./view/footer.html'"></div>
+
+        <div id = "appMask" class = "mask on"></div>
+
+        <script src = "./lib/angular.min.js"></script>
+        <script src = "./lib/angular-ui-router.min.js"></script>
+        <script src = "./lib/angular-websocket.js"></script>
+        <script src = "https://d3js.org/d3.v3.min.js"></script>
+
+        <script src = "./js/app.js"></script>
+        <script src = "./js/controller/Main.js"></script>    
+        <script src = "./js/util/SpeedBump.js"></script>
+        <script src = "./js/service/GMap.js"></script>
+        <script src = "./js/factory/GMapInitializer.js"></script>
+    </body>
 </html>

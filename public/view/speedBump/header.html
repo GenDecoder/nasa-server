@@ -1,0 +1,9 @@
+<div class="title">
+    {{currentItem.name}}
+    <div class="close-tool" ng-click="closeModal()">X</div>
+    <div class="direction">{{currentItem.address}}</div>
+</div>
+<div class="toggle">
+    <div class="tab" ng-class="{'selected':!isMapVisible}" ng-click="onToggleChange(false)">Gráfico</div>
+    <div class="tab" ng-class="{'selected':isMapVisible}" ng-click="onToggleChange(true)">Mapa</div>
+</div>

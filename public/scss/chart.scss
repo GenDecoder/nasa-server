@@ -1,0 +1,67 @@
+.nrd-chart {
+  margin-top: 30px;
+}
+.e-m-header {
+  padding: 2px 2px 0 2px;
+  border-bottom: none !important;
+  .title {
+    border-radius: 10px 10px 0 0;
+    color: $whiteColor;
+    font: bold 20px/35px $regularFontFamily;
+    padding: 2px 15px;
+    background-color: #1f1f1f;
+    .close-tool {
+      display: inline-block;
+      float: right;
+    }
+    .direction {
+      font: 500 14px/25px $regularFontFamily;
+      background-color: #565656;
+      border-radius: 5px;
+      margin: 5px 0;
+      padding: 5px;
+    }
+  }
+  .toggle {
+    padding: 0 20px;
+    background-color: #1f1f1f;
+    .tab {
+      color: $whiteColor;
+      border-radius: 5px 5px 0 0;
+      padding: 0 20px;
+      margin-top: 5px;
+      display: inline-block;
+      background-color: #1f1f1f;
+      font: bold 16px/30px $regularFontFamily;
+      border: solid 1px #1f1f1f;
+      border-bottom: none;
+      &.selected {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #1f1f1f;
+      }
+    }
+  }
+}
+.e-m-body {
+  display: block !important;
+  margin-top: -2px;
+  padding: 0 2px 2px 2px;
+  .body {
+    border-radius: 0 0 10px 10px;
+    background-color: #1f1f1f;
+    padding: 5px;
+    .chart-gauge {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 5px;
+      padding-top: 15px;
+      .mainGraph {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+.angular-google-map-container {
+  height: 250px;
+  width: 100%;
+  border-radius: 5px;
+}
