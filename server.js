@@ -27,6 +27,7 @@ wss.on('connection', function connection(ws) {
   clts.push(ws);
   // Testing pruposes
   ws.send('something');
+  
 });
 var registryModel = require('./model/registry')(orm, instance);
 require('./resource/entity')(require('./model/entity')(orm, instance), server);
@@ -74,7 +75,7 @@ client.on('message', function (topic, data) {
           ENTITY_ID: array[2]
       }).then(function(response) {
         for (var i = 0; i < clts.length; i += 1)
-          clts[i].send(response.dataValues.SOIL_WET);
+          !clts[i]._finalizeCalled && clts[i].send(response.dataValues.SOIL_WET);
       });
       break;
     // case 'camera':

@@ -41,7 +41,7 @@ app.controller('MainCtrl', [
         $scope.loc = "-16.5407483,-68.0828799";
         mask.removeClass('on');
 
-        var dataStream = $websocket('ws://localhost:8081/connection');
+        var dataStream = $websocket('ws://' + window.location.hostname + ':8081/connection');
 
         dataStream.onMessage(function(message) {    
             var color;
