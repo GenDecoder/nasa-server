@@ -8,7 +8,6 @@ var instance = new orm('nrd_hackaton', 'root', 'mysql!nrd!123', {
 	dialect: 'mysql',
 	host: 'nrd-mysql-db.cbinxfo32p69.us-east-1.rds.amazonaws.com'
 });
-
 server.use(express.static(path.join(__dirname, 'public')));
 server.use(bodyParser.urlencoded({
 	extended: true
@@ -16,25 +15,20 @@ server.use(bodyParser.urlencoded({
 server.use(bodyParser.json());
 server.use(morgan('dev'));
 
-// var mqtt = require('mqtt')
-// var client  = mqtt.connect('mqtt://test.mosquitto.org')
-
-// client.on('connect', function () {
-//   client.subscribe('presence')
-//   client.publish('presence', 'Hello mqtt')
-// })
-
-// client.on('message', function (topic, message) {
-//   // message is Buffer
-//   console.log(message.toString())
-//   client.end()
-// })
-
-var entityModel = require('./model/entity')(orm, instance);
-var entityResource = require('./resource/entity')(entityModel, server);
-
-var sensorModel = require('./model/sensor')(orm, instance);
-var sensorResource = require('./resource/sensor')(sensorModel, server);
+var mqtt = require('mqtt')
+var client  = mqtt.connect('mqtt://52.90.164.168');
+client.on('connect', function () {
+  client.subscribe('presence/#');
+  // client.publish('presence/1', 'Hello mqtt')
+});
+client.on('message', function (topic, message) {
+  // message is Buffer
+  console.log(topic.toString())
+  console.log(message.toString());
+  //client.end()
+});
+require('./resource/entity')(require('./model/entity')(orm, instance), server);
+require('./resource/sensor')(require('./model/sensor')(orm, instance), server);
 
 var typeModel = require('./model/type')(orm, instance);
 var typeResource = require('./resource/type')(typeModel, server);
