@@ -67,23 +67,20 @@ client.on('message', function (topic, data) {
       //   }
       // });
       registryModel.create({
-          SOIL_WET: 2, // Calculate this
+          SOIL_WET: data.toString('utf8'), // Calculate this
           PICTURE: '',
           PRECIPITATION: 10, // Calculate this
           LANDSLIDE_RISK_LEVEL: 7, // Calculate this
           ENTITY_ID: array[2]
       }).then(function(response) {
         for (var i = 0; i < clts.length; i += 1)
-          clts[i].send(response.dataValues.LANDSLIDE_RISK_LEVEL);
+          clts[i].send(response.dataValues.SOIL_WET);
       });
       break;
     // case 'camera':
     //   break;   
   }
 });
-// server.post('/test', function(req, res) {
-//   client.publish('sensor/1', 'INTEGRATION');
-//   res.json({success: true});
-// });
+
 server.listen(8080);
 console.log('Server Running');
